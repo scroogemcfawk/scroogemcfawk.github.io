@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    height: 220vh;
+    width: 100vw;
+    background-image: url("itsc-team-pres-bg-done.png");
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    background-size: 1920px 2160px;
+}
+
+#logo {
+    position: fixed;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+
+    line-height: 100vh;
+    user-select: none;
+
+    letter-spacing: 2rem;
+    width: 100%;
+    height: 100%;
+    /*top: calc((100vh - 70px) / 2 - 50px);*/
+    /*left: calc((100vw - 200px) / 2);*/
+    color: white;
+    font-size: 100px;
+    font-family: CozetteVector, monospace;
+    cursor: pointer;
+
+}
+
+.letter {
+    margin: -50px;
+}
