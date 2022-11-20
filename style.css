@@ -8,6 +8,11 @@
     display: none;
 }
 
+@font-face {
+    font-family: "Cozette";
+    src: url("./CozetteVector.ttf") format("truetype");
+}
+
 body {
     height: 220vh;
     width: 100vw;
@@ -33,7 +38,7 @@ body {
     /*left: calc((100vw - 200px) / 2);*/
     color: white;
     font-size: 100px;
-    font-family: CozetteVector, monospace;
+    font-family: Cozette, CozetteVector, monospace;
     cursor: pointer;
 
 }
