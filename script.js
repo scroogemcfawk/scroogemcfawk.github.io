@@ -17,18 +17,26 @@ function playBAZA() {
     AUDIO.random().play();
 }
 
+function resize() {
+    console.log(window.innerHeight, window.innerWidth)
+    // if (window.innerHeight > window.innerWidth) {
+    //     document.body.style.height = "100vh";
+    // } else {
+    //
+    // }
+}
+
 document.addEventListener('scroll', () => {
     let letters = document.getElementsByClassName("letter");
     for (let l = 0; l < letters.length; l++) {
         let scrollRule = window.scrollY / 10 - 50;
-        if (scrollRule <= 150) {
+        if (scrollRule <= window.innerWidth / 200) {
             letters[l].style.margin = `${scrollRule}px`;
         }
     }
 });
 
 function randomize() {
-    let letters = document.getElementsByClassName("letter");
     let flag = Math.round(Math.random() * 4);
     switch (flag) {
         case 0:
@@ -50,5 +58,7 @@ function randomize() {
     console.log(timeout)
     setTimeout(randomize, timeout);
 }
+
 randomize();
 
+window.onresize = resize;
