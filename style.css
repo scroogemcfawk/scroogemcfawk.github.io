@@ -16,10 +16,11 @@
 body {
     height: 220vh;
     width: 100vw;
-    background-image: url("itsc-team-pres-bg-done.png");
-    background-repeat: repeat;
+    background-image: url("stars-bg.gif");
+    background-repeat: no-repeat;
     overflow-x: hidden;
-    background-size: 1920px 2160px;
+    background-size: auto;
+    /*background-size: 1920px 2160px;*/
 }
 
 #logo {
