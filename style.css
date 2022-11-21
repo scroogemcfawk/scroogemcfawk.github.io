@@ -17,13 +17,19 @@ body {
     height: 220vh;
     width: 100vw;
     background-image: url("stars-bg.gif");
-    background-repeat: no-repeat;
-    overflow-x: hidden;
+    background-repeat: repeat;
+    /*overflow-x: hidden;*/
     background-size: auto;
+    /*background-blend-mode: difference;*/
+    background-position-x: 0;
+    /*background-position-y: 100px;*/
     /*background-size: 1920px 2160px;*/
+    animation: animatedBackground 60s linear infinite ;
 }
 
 #logo {
+    mix-blend-mode: difference;
+
     position: fixed;
     display: inline-block;
     text-align: center;
@@ -42,6 +48,18 @@ body {
     font-family: Cozette, CozetteVector, monospace;
     cursor: pointer;
 
+
+
+
+}
+
+@keyframes animatedBackground {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: 100vw;
+    }
 }
 
 .letter {
