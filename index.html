@@ -2,14 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
-    <link href="style.css" rel="stylesheet">
+    <title>Player</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body onload="initElements()">
+<body>
 <div id="main">
-    <button id="loadFragmentsButton" onclick="setUpButtons()">Load Fragments</button>
+    <div id="mainHead">
+        <div id="downloadContainer">
+            <div id="downloadButton" class="controls">
+                <div id="downloadArrow"></div>
+            </div>
+        </div>
+    </div>
+    <div id="mainContainer">
+        <div id="playerContainer">
+            <div id="selectedTextContainer" class="text">
+                Text1
+            </div>
+            <div id="audioContainer">
+                <audio id="audio" src="https://file-examples.com/storage/fe86e66df4655150f9a03be/2017/11/file_example_MP3_700KB.mp3"></audio>
+                <div id="audioProgressBar">
+                    <div id="audioProgress"></div>
+                </div>
+            </div>
+            <div id="controls">
+                <div id="hardLeftButton" class="controls minor">
+
+                </div>
+                <div id="leftButton" class="controls minor">
+
+                </div>
+                <div id="playButton" class="controls">
+
+                </div>
+                <div id="rightButton" class="controls minor">
+
+                </div>
+                <div id="hardRightButton" class="controls minor">
+
+                </div>
+                <div id="volumeButton" class="controls">
+
+                </div>
+            </div>
+            <div id="buttons">
+                <button id="markButton">ОТМЕТИТЬ</button>
+                <button id="confirmButton">ПОДТВЕРДИТЬ</button>
+            </div>
+        </div>
+        <div id="textContainer">
+            <div id="textFields">
+                <p class="text">text1</p>
+                <p class="text">text2</p>
+                <p class="text">text3</p>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
-<script src="audioTest.js">
-</script>
 </html>

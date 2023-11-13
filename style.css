@@ -1,0 +1,382 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr minmax(600px, 1000px) 1fr;
+    grid-template-rows: 1fr 6fr 1fr;
+}
+
+#main {
+    /*max-width: 1200px;*/
+    min-width: 600px;
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: 2fr 12fr 1fr;
+    background-color: #C5CED7;
+    max-height: 600px;
+}
+
+#mainHead {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 10fr) 1fr minmax(300px, 10fr) 1fr;
+    grid-template-rows: 2fr 4fr 1fr;
+    text-align: right;
+}
+
+#downloadContainer {
+    grid-column: 4;
+    grid-row: 2;
+}
+
+#downloadButton {
+    margin-left: calc(100% - 50px);
+}
+
+#downloadArrow::before {
+    content: "";
+    border-left: #DADAD8 4px solid;
+    border-bottom: #DADAD8 4px solid;
+    transform: rotate(-45deg);
+    position: relative;
+    margin-right: 15px;
+    margin-top: 15px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+#downloadArrow::after {
+    content: "";
+    border-left: #DADAD8 4px solid;
+    position: relative;
+    left: -7px;
+    bottom: 30px;
+    display: inline-block;
+    width: 15px;
+    height: 30px;
+}
+
+#downloadButton::before {
+    content: "";
+    border-bottom: #DADAD8 4px solid;
+    position: absolute;
+    margin-left: -37px;
+    margin-top: 11px;
+    width: 26px;
+    height: 25px;
+}
+
+
+
+#mainContainer {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 10fr) 1fr minmax(300px, 10fr) 1fr;
+    /*grid-template-rows: 600px;*/
+}
+
+#mainContainer * {
+    /*background-color: greenyellow;*/
+}
+
+#playerContainer {
+    overflow: hidden;
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-rows: minmax(100px, 5fr) 1fr minmax(40px, 2fr) minmax(40px, 2fr) minmax(40px, 1.5fr) 1fr;
+    grid-template-columns: 1fr 20fr 1fr;
+    /*max-height: 600px;*/
+}
+
+#selectedTextContainer {
+    padding: 15px;
+    grid-row: 1;
+    background-color: white;
+}
+
+#audioContainer {
+    grid-row: 3;
+    max-height: 100px;
+}
+
+#audio {
+    /*height: 10px;*/
+}
+
+#audioProgressBar {
+    margin-top: 15px;
+    height: 5px;
+    background-color: white;
+}
+
+#audioProgress {
+    height: 5px;
+    background-color: white;
+    width: 50%;
+}
+
+#audioProgress::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    margin-left: 100px;
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    background-color: white;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#controls {
+    grid-row: 4;
+    display: grid;
+    /*background-color: red;*/
+    grid-template-columns: 1fr 15px 1fr 15px 1fr 15px 1fr 15px 1fr 15px 1fr;
+    grid-template-rows: 1fr;
+}
+
+#controls > * {
+    background-color: #FFFFFD;
+}
+
+#hardLeftButton {
+    grid-column: 1 !important;
+    grid-row: 1;
+}
+
+#hardLeftButton::before {
+    content: "";
+    display: inline-block;
+    border-left: #DADAD8 4px solid;
+    height: 25px;
+    width: 20px;
+    position: relative;
+    margin-left: 13px;
+    margin-top: 10px;
+}
+
+#hardLeftButton::after {
+    content: "";
+    display: inline-block;
+    background-color: #DADAD8;
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 12px;
+    border-top: white 12px solid;
+    border-right: #DADAD8 18px solid;
+    border-bottom: white 12px solid;
+}
+
+#leftButton {
+    grid-column: 3 !important;
+    grid-row: 1;
+}
+
+#leftButton::after {
+    content: "";
+    display: inline-block;
+    background-color: #DADAD8;
+    height: 4px;
+    width: 22px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 20px;
+    border-right: #DADAD8 4px solid;
+}
+
+#leftButton::before {
+    content: "";
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 13.2px;
+    border-left: #DADAD8 4px solid;
+    border-bottom: #DADAD8 4px solid;
+}
+
+#playButton {
+    grid-column: 5 !important;
+    grid-row: 1;
+}
+
+#playButton::before {
+    content: "";
+    display: inline-block;
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    margin-left: 16px;
+    margin-top: 12px;
+    border-left: #DADAD8 25px solid;
+    border-bottom: white 14px solid;
+    border-right: white 0px solid;
+    border-top: white 14px solid;
+}
+
+#rightButton {
+    grid-column: 7 !important;
+    grid-row: 1;
+}
+
+#rightButton::after {
+    content: "";
+    display: inline-block;
+    background-color: #DADAD8;
+    height: 4px;
+    width: 22px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 20px;
+    border-right: #DADAD8 4px solid;
+}
+
+#rightButton::before {
+    content: "";
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    margin-left: 17px;
+    margin-top: 13.2px;
+    border-right: #DADAD8 4px solid;
+    border-top: #DADAD8 4px solid;
+}
+
+
+#hardRightButton {
+    grid-column: 9 !important;
+    grid-row: 1;
+}
+
+#hardRightButton::before {
+    content: "";
+    display: inline-block;
+    border-left: #DADAD8 4px solid;
+    height: 25px;
+    width: 20px;
+    position: relative;
+    margin-left: 33px;
+    margin-top: 10px;
+}
+
+#hardRightButton::after {
+    content: "";
+    display: inline-block;
+    background-color: #DADAD8;
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: -28px;
+    border-top: white 12px solid;
+    border-left: #DADAD8 18px solid;
+    border-bottom: white 12px solid;
+}
+
+#volumeButton {
+    grid-column: 11 !important;
+    grid-row: 1;
+    overflow: hidden;
+}
+
+#volumeButton::after {
+    content: "";
+    display: inline-block;
+    rotate: 180deg;
+    background-color: #DADAD8;
+    height: 12px;
+    width: 12px;
+    position: relative;
+    margin-left: 11px;
+    margin-top: 10px;
+    border-top: white 8px solid;
+    border-left: #DADAD8 12px solid;
+    border-bottom: white 8px solid;
+}
+
+#buttons {
+    grid-row: 5;
+    display: grid;
+    grid-template-columns: 7fr 1fr 7fr;
+    grid-template-rows: 1fr;
+}
+
+#buttons > * {
+    grid-row: 1;
+    border-radius: 15px;
+    border-color: white;
+    border-style: hidden;
+    background-color: #FFFFFD;
+    cursor: pointer;
+}
+
+#markButton {
+    grid-column: 1 !important;
+}
+
+#confirmButton {
+    grid-column: 3 !important;
+}
+
+#playerContainer * {
+    grid-column: 2;
+}
+
+#textContainer {
+    grid-column: 4;
+    grid-row: 1;
+    display: grid;
+    background-color: white;
+    grid-template-columns: 1fr 20fr 1fr;
+    grid-template-rows: 1fr 30fr 1fr;
+}
+
+#textFields {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: white;
+}
+
+#textFields * {
+    background-color: white;
+    /*margin-top: 0;*/
+}
+
+.text {
+    text-transform: uppercase;
+    font-family: sans-serif;
+    background-color: white;
+}
+
+.controls {
+    background-color: #FFFFFD;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.minor {
+    width: 44px;
+    height: 44px;
+    border-radius: 44px;
+}
