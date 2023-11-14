@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Player</title>
-    <link rel="stylesheet" href="/master/style.css">
+<!--    <link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="master/style.css">
 </head>
 <body>
 <div id="main">
     <div id="mainHead">
         <div id="downloadContainer">
             <div id="downloadButton" class="controls">
-                <div id="downloadArrow"></div>
+                <div id="downloadArrow" onclick="loadText()"></div>
             </div>
         </div>
     </div>
@@ -52,12 +53,13 @@
         </div>
         <div id="textContainer">
             <div id="textFields">
-                <p class="text">text1</p>
-                <p class="text">text2</p>
-                <p class="text">text3</p>
+                <p class="text" onclick="selectText(0)">text1</p>
+                <p class="text" onclick="selectText(1)">text2</p>
+                <p class="text" onclick="selectText(2)">text3</p>
             </div>
         </div>
     </div>
 </div>
 </body>
+<script src="master/s2.js"></script>
 </html>
