@@ -187,24 +187,30 @@ body {
 
 #audioProgress {
     height: 5px;
-    background-color: white;
-    width: 50%;
+    background-color: red;
+    width: 0%;
+    display: flex;
 }
 
-#audioProgress::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    margin-left: 100px;
-    width: 10px;
-    height: 10px;
-    margin-top: -5px;
-    background-color: white;
-    border-style: solid;
-    border-color: white;
-    border-radius: 10px;
-    cursor: pointer;
-}
+/*#audioProgress::after {*/
+/*    content: "";*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-self: flex-end;*/
+/*    !*position: b;*!*/
+/*    !*left: 99%;*!*/
+/*    margin-top: 10px;*/
+/*    !*margin-left: 60%;*!*/
+
+/*    width: 10px;*/
+/*    height: 10px;*/
+/*    !*margin-top: -10px;*!*/
+/*    background-color: white;*/
+/*    border-style: solid;*/
+/*    border-color: white;*/
+/*    border-radius: 10px;*/
+/*    cursor: pointer;*/
+/*}*/
 
 #controls {
     @media (min-aspect-ratio: 1/1) {
@@ -288,6 +294,12 @@ body {
 #playButton {
     grid-column: 5 !important;
     grid-row: 1;
+    z-index: 1;
+}
+
+#pauseButton {
+    grid-column: 5 !important;
+    grid-row: 1;
 }
 
 #playButton::before {
@@ -302,6 +314,21 @@ body {
     border-bottom: white 14px solid;
     border-right: white 0px solid;
     border-top: white 14px solid;
+}
+
+#pauseButton::after {
+    opacity: 100;
+    content: "";
+    display: inline-block;
+    height: 30px;
+    width: 10px;
+    position: absolute;
+    margin-left: 12px;
+    margin-top: 10px;
+    border-left: #DADAD8 8px solid;
+    border-bottom: white 0px solid;
+    border-right: #DADAD8 8px solid;
+    border-top: white 0px solid;
 }
 
 #rightButton {

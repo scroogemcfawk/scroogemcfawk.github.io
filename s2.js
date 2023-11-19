@@ -1,4 +1,9 @@
 var textEl = document.getElementById("selectedTextContainer")
+let audio = document.getElementById("audio")
+let audioState = false
+let playButton = document.getElementById("playButton")
+let init = false
+
 function selectText(n) {
     const fields = document.getElementById("textFields").children
     // console.log(textEl)
@@ -15,7 +20,42 @@ function selectText(n) {
     }
 }
 
+function progressLoop() {
+    let progress = document.getElementById("audioProgress")
+    let now = audio.currentTime
+    let end = audio.duration
+
+    // console.log(now / end * 100)
+
+    progress.style.width = (now / end * 100) + "%"
+
+    setTimeout(progressLoop, 100)
+}
+
+function A() {
+    console.log('A')
+}
+
+function B() {
+    console.log('B')
+}
+
+function playPause() {
+    if (!init) {
+        progressLoop()
+    }
+    if (audioState) {
+        audio.pause()
+        playButton.style.zIndex = '1'
+    } else {
+        audio.play()
+        playButton.style.zIndex = '-1'
+    }
+    audioState = !audioState
+}
+
 function loadText() {
+    audio.src = "recording.mp3"
     textEl.innerText = ""
     let ts = [
         "ОДНА ИЗ ВЕСЕЛЕЙШИХ СТОРОН СТУДЕНЧЕСКОЙ ЖИЗНИ -- ЭТО РАБОТА НАД ПРОЕКТАМИ ПО ПРОГРАММНОЙ ИНЖЕНЕРИИ.",
