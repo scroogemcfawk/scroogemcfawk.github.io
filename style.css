@@ -514,3 +514,16 @@ body {
 .selected  {
     text-decoration-line: underline;
 }
+
+.marked {
+    color: red !important;
+}
+
+.accepted {
+    color: green !important;
+}
+
+.muted {
+    box-sizing: border-box;
+    border: 4px red solid !important;
+}
