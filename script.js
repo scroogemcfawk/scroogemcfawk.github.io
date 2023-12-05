@@ -140,4 +140,5 @@ async function loadText() {
         }
         fields.appendChild(p)
     }
+    selectText(0)
 }

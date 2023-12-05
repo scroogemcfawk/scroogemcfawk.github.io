@@ -132,7 +132,9 @@ body {
     display: grid;
     /*Desktop*/
     @media (min-aspect-ratio: 1/1) {
-        grid-template-rows: minmax(100px, 5fr) 1fr minmax(40px, 2fr) minmax(40px, 2fr) minmax(40px, 1.5fr) 1fr;
+        /*grid-template-rows: minmax(100px, 5fr) 1fr minmax(40px, 2fr) minmax(40px, 2fr) minmax(40px, 1.5fr) 1fr;*/
+        /*grid-template-rows: minmax(100px, 10fr) 1fr minmax(40px, 2fr) minmax(40px, 2fr) minmax(40px, 2fr) 1fr;*/
+        grid-template-rows: minmax(100px, 11fr) 1fr minmax(40px, 2fr) 2fr 0fr 0fr;
         grid-row: 1;
     }
     /*Mobile*/
