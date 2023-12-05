@@ -196,7 +196,8 @@ body {
     }
 
     display: grid;
-    grid-template-columns: 1fr 15px 1fr 15px 1fr 15px 1fr 15px 1fr 15px 1fr;
+    /*grid-template-columns: 1fr 15px 1fr 15px 1fr 15px 1fr 15px 1fr 15px 1fr;*/
+    grid-template-columns: 30px 1fr 15px 1fr 15px 1fr 15px 1fr 30px;
     grid-template-rows: 1fr;
 }
 
@@ -494,4 +495,25 @@ body {
 .muted {
     box-sizing: border-box;
     border: 4px red solid !important;
+}
+
+.muted::after {
+    content: "";
+    display: inline-block;
+    rotate: 180deg;
+    background-color: red !important;
+    height: 12px;
+    width: 12px;
+    position: relative;
+    margin-left: 8px !important;
+    margin-top: 7px !important;
+    border-top: white 8px solid;
+    border-left: red 12px solid !important;
+    border-bottom: white 8px solid;
+}
+
+.importantText {
+    background-color: red !important;
+    font-weight: bold;
+    text-decoration-line: underline;
 }

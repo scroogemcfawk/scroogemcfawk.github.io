@@ -3,6 +3,7 @@ let audio = document.getElementById("audio")
 let audioState = false
 let playButton = document.getElementById("playButton")
 let init = false
+let loadState = false
 
 let fragments
 let currentFragmentIndex
@@ -90,6 +91,12 @@ function accept() {
 }
 
 function playPause() {
+    if (!loadState) {
+        let hint = document.getElementById("hint")
+        console.log(hint)
+        hint.classList.add("importantText")
+        return
+    }
     if (!init) {
         progressLoop()
     }
@@ -120,6 +127,7 @@ async function loadText() {
             })
         })
     audio.src = fragments[0].url
+    loadState = true
     const fields = document.getElementById("textFields")
     fields.innerHTML=""
     for (let i = 0; i < fragments.length; i++) {
