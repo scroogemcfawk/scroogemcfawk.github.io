@@ -4,6 +4,7 @@ let audioState = false
 let playButton = document.getElementById("playButton")
 let init = false
 let loadState = false
+let timeout
 
 let fragments
 let currentFragmentIndex
@@ -50,6 +51,7 @@ function progressLoop() {
 function next() {
     if (currentFragmentIndex < fragments.length - 1) {
         selectText(++currentFragmentIndex)
+        autoFragment()
     }
 }
 
@@ -64,6 +66,7 @@ function hardNext() {
 function previous() {
     if (0 < currentFragmentIndex) {
         selectText(--currentFragmentIndex)
+        autoFragment()
     }
 }
 
@@ -90,6 +93,23 @@ function accept() {
     ps[currentFragmentIndex].classList.add('accepted')
 }
 
+function autoFragment() {
+    if (timeout !== undefined) {
+        clearTimeout(timeout)
+    }
+    timeout = setTimeout(
+        () => {
+            if (currentFragmentIndex < fragments.length - 1) {
+                selectText(currentFragmentIndex + 1)
+            } else {
+                playPause()
+            }
+            autoFragment()
+        },
+        (fragments[currentFragmentIndex]['timeEnd'] - fragments[currentFragmentIndex]['timeBegin']) * 1000
+    )
+}
+
 function playPause() {
     if (!loadState) {
         let hint = document.getElementById("hint")
@@ -103,9 +123,14 @@ function playPause() {
     if (audioState) {
         audio.pause()
         playButton.style.zIndex = '1'
+        if (timeout !== undefined) {
+            clearTimeout(timeout)
+        }
     } else {
+        // console.log("play")
         audio.play()
         playButton.style.zIndex = '-1'
+        autoFragment()
     }
     audioState = !audioState
 }
