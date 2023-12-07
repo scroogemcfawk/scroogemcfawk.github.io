@@ -139,7 +139,7 @@ body {
     }
     /*Mobile*/
     @media (max-aspect-ratio: 1/1) {
-        grid-template-rows: 1fr 2fr 2fr 1fr 1fr;
+        grid-template-rows: 1fr 1.5fr 2fr 1fr 1fr;
         grid-row: 2;
     }
     grid-template-columns: 1fr 20fr 1fr;
@@ -464,11 +464,21 @@ body {
 }
 
 .controls {
-    background-color: #FFFFFD;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    cursor: pointer;
+    @media (min-aspect-ratio: 1/1) {
+        background-color: #FFFFFD;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    /*Mobile*/
+    @media (max-aspect-ratio: 1/1) {
+        background-color: #FFFFFD;
+        width: 75px;
+        height: 75px;
+        border-radius: 75px;
+        cursor: pointer;
+    }
 }
 
 .controls:hover {
@@ -477,9 +487,18 @@ body {
 }
 
 .minor {
-    width: 44px;
-    height: 44px;
-    border-radius: 44px;
+    @media (min-aspect-ratio: 1/1) {
+        width: 44px;
+        height: 44px;
+        border-radius: 44px;
+    }
+    /*Mobile*/
+    @media (max-aspect-ratio: 1/1) {
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
+    }
+
 }
 
 .selected  {

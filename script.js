@@ -100,11 +100,12 @@ function autoFragment() {
     timeout = setTimeout(
         () => {
             if (currentFragmentIndex < fragments.length - 1) {
-                selectText(currentFragmentIndex + 1)
+                playPause()
+                // selectText(currentFragmentIndex + 1)
             } else {
                 playPause()
             }
-            autoFragment()
+            // autoFragment()
         },
         (fragments[currentFragmentIndex]['timeEnd'] - fragments[currentFragmentIndex]['timeBegin']) * 1000
     )
