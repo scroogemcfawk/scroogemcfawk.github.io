@@ -20,6 +20,7 @@ body {
     /*Mobile*/
     @media (max-aspect-ratio: 1/1) {
         grid-template-columns: 0fr 20fr 0fr;
+        background-color: #C5CED7;
     }
     grid-template-rows: 1fr 6fr 1fr;
 }
