@@ -11,17 +11,19 @@ let currentFragmentIndex
 audio.muted = false
 
 function selectText(n) {
-    const fields = document.getElementById("textFields").children
-    currentFragmentIndex = n
-    audio.currentTime = fragments[currentFragmentIndex].timeBegin
+    if (n > -1) {
+        const fields = document.getElementById("textFields").children
+        currentFragmentIndex = n
+        audio.currentTime = fragments[currentFragmentIndex].timeBegin
 
-    for (let c = 0; c < fields.length; c++) {
-        let e = fields[c]
-        if (c !== n) {
-            e.classList.remove("selected")
-        } else {
-            e.classList.add("selected")
-            textEl.textContent = e.textContent
+        for (let c = 0; c < fields.length; ++c) {
+            let e = fields[c]
+            if (c !== n) {
+                e.classList.remove("selected")
+            } else {
+                e.classList.add("selected")
+                textEl.textContent = e.textContent
+            }
         }
     }
 }
@@ -166,5 +168,5 @@ async function loadText() {
         }
         fields.appendChild(p)
     }
-    selectText(0)
+    selectText(-1)
 }
