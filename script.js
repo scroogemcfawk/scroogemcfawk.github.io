@@ -29,12 +29,16 @@ function selectText(n) {
 }
 
 function toggleMuteAudio() {
+    var icon = document.getElementById("volumeButton").getElementsByTagName("i").item(0)
     if (audio.muted) {
         audio.volume = 1.0
+        icon.classList.remove("fa-volume-xmark")
+        icon.classList.add("fa-volume-high")
     } else {
         audio.volume = 0.0
+        icon.classList.add("fa-volume-xmark")
+        icon.classList.remove("fa-volume-high")
     }
-    document.getElementById("volumeButton").classList.toggle("muted")
     audio.muted = !audio.muted
 }
 

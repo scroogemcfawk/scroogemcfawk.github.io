@@ -5,13 +5,17 @@
     <title>Player</title>
 <!--    <link rel="stylesheet" href="style.css">-->
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e5d6bb757b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
 <div id="main">
     <div id="mainHead">
         <div id="downloadContainer">
-            <div id="downloadButton" class="controls">
-                <div id="downloadArrow" onclick="loadText()"></div>
+            <div id="downloadButton" class="controls btn" onclick="loadText()">
+                <span class="icon">
+                   <i class="fa-solid fa-cloud-arrow-down"></i>
+                </span>
             </div>
         </div>
     </div>
@@ -27,18 +31,35 @@
                 </div>
             </div>
             <div id="controls">
-<!--                <div id="hardLeftButton" class="controls minor" onclick="hardPrevious()"></div>-->
-                <div id="leftButton" class="controls minor" onclick="previous()"></div>
-                <div id="playButton" class="controls" onclick="playPause()"></div>
-                <div id="pauseButton" class="controls" onclick="playPause()"></div>
-                <div id="rightButton" class="controls minor" onclick="next()"></div>
-<!--                <div id="hardRightButton" class="controls minor" onclick="hardNext()"></div>-->
-                <div id="volumeButton" class="controls" onclick="toggleMuteAudio()"></div>
+
+                <div id="leftButton" class="controls btn" onclick="previous()">
+                    <span class="icon">
+                        <i class="fa-solid fa-backward"></i>
+                    </span>
+                </div>
+                <div id="playButton" class="controls btn" onclick="playPause()">
+                    <span class="icon">
+                        <i class="fa-solid fa-play"></i>
+                    </span>
+                </div>
+                <div id="pauseButton" class="controls btn" onclick="playPause()">
+                    <span class="icon">
+                        <i class="fa-solid fa-pause"></i>
+                    </span>
+                </div>
+                <div id="rightButton" class="controls btn" onclick="next()">
+                    <span class="icon">
+                        <i class="fa-solid fa-forward"></i>
+                    </span>
+                </div>
+
+                <div id="volumeButton" class="controls btn" onclick="toggleMuteAudio()">
+                    <span class="icon">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </span>
+                </div>
             </div>
-<!--            <div id="buttons">-->
-<!--                <button id="markButton" onclick="mark()">ОТМЕТИТЬ</button>-->
-<!--                <button id="confirmButton" onclick="accept()">ПОДТВЕРДИТЬ</button>-->
-<!--            </div>-->
+
         </div>
         <div id="textContainer">
             <div id="textFields">

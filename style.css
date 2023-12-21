@@ -49,6 +49,7 @@ body {
     display: grid;
     @media (min-aspect-ratio: 1/1) {
         grid-template-columns: 1fr minmax(300px, 10fr) 1fr minmax(300px, 10fr) 1fr;
+        /*grid-template-columns: 1fr 10fr 1fr 10fr 1fr;*/
     }
     /*Mobile*/
     @media (max-aspect-ratio: 1/1) {
@@ -64,42 +65,43 @@ body {
     grid-row: 2;
 }
 
+.btn {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+
 #downloadButton {
     margin-left: calc(100% - 50px);
 }
 
-#downloadArrow::before {
-    content: "";
-    border-left: #DADAD8 4px solid;
-    border-bottom: #DADAD8 4px solid;
-    transform: rotate(-45deg);
-    position: relative;
-    margin-right: 15px;
-    margin-top: 15px;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
+.icon {
+    @media (min-aspect-ratio: 1/1) {
+        font-size: 24px;
+    }
+    /*Mobile*/
+    @media (max-aspect-ratio: 1/1) {
+        font-size: 42px;
+    }
+
+    color: #DADAD8;
+    grid-column: 2;
+    grid-row: 2;
+
+    max-height: 48px !important;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
-#downloadArrow::after {
-    content: "";
-    border-left: #DADAD8 4px solid;
-    position: relative;
-    left: -7px;
-    bottom: 30px;
-    display: inline-block;
-    width: 15px;
-    height: 30px;
+.icon:hover {
+    color: coral;
 }
 
-#downloadButton::before {
-    content: "";
-    border-bottom: #DADAD8 4px solid;
-    position: absolute;
-    margin-left: -37px;
-    margin-top: 11px;
-    width: 26px;
-    height: 25px;
+i {
+    grid-column: 2;
+    grid-row: 2;
 }
 
 
@@ -241,37 +243,19 @@ body {
 #leftButton {
     grid-column: 3 !important;
     grid-row: 1;
+    text-align: center;
+    vertical-align: center;
+    line-height: 75px;
 }
 
-#leftButton::after {
-    content: "";
-    display: inline-block;
-    background-color: #DADAD8;
-    height: 4px;
-    width: 22px;
-    position: absolute;
-    margin-left: 10px;
-    margin-top: 20px;
-    border-right: #DADAD8 4px solid;
-}
-
-#leftButton::before {
-    content: "";
-    display: inline-block;
-    transform: rotate(45deg);
-    height: 14px;
-    width: 14px;
-    position: absolute;
-    margin-left: 10px;
-    margin-top: 13.2px;
-    border-left: #DADAD8 4px solid;
-    border-bottom: #DADAD8 4px solid;
-}
 
 #playButton {
     grid-column: 5 !important;
     grid-row: 1;
     z-index: 1;
+    text-align: center;
+    vertical-align: center;
+    line-height: 75px;
 }
 
 #pauseButton {
@@ -279,65 +263,10 @@ body {
     grid-row: 1;
 }
 
-#playButton::before {
-    content: "";
-    display: inline-block;
-    height: 0px;
-    width: 0px;
-    position: absolute;
-    margin-left: 16px;
-    margin-top: 12px;
-    border-left: #DADAD8 25px solid;
-    border-bottom: white 14px solid;
-    border-right: white 0px solid;
-    border-top: white 14px solid;
-}
-
-#pauseButton::after {
-    opacity: 100;
-    content: "";
-    display: inline-block;
-    height: 30px;
-    width: 10px;
-    position: absolute;
-    margin-left: 12px;
-    margin-top: 10px;
-    border-left: #DADAD8 8px solid;
-    border-bottom: white 0px solid;
-    border-right: #DADAD8 8px solid;
-    border-top: white 0px solid;
-}
-
 #rightButton {
     grid-column: 7 !important;
     grid-row: 1;
 }
-
-#rightButton::after {
-    content: "";
-    display: inline-block;
-    background-color: #DADAD8;
-    height: 4px;
-    width: 22px;
-    position: absolute;
-    margin-left: 10px;
-    margin-top: 20px;
-    border-right: #DADAD8 4px solid;
-}
-
-#rightButton::before {
-    content: "";
-    display: inline-block;
-    transform: rotate(45deg);
-    height: 14px;
-    width: 14px;
-    position: absolute;
-    margin-left: 17px;
-    margin-top: 13.2px;
-    border-right: #DADAD8 4px solid;
-    border-top: #DADAD8 4px solid;
-}
-
 
 #hardRightButton {
     grid-column: 9 !important;
@@ -375,20 +304,6 @@ body {
     overflow: hidden;
 }
 
-#volumeButton::after {
-    content: "";
-    display: inline-block;
-    rotate: 180deg;
-    background-color: #DADAD8;
-    height: 12px;
-    width: 12px;
-    position: relative;
-    margin-left: 11px;
-    margin-top: 10px;
-    border-top: white 8px solid;
-    border-left: #DADAD8 12px solid;
-    border-bottom: white 8px solid;
-}
 
 #buttons {
     @media (min-aspect-ratio: 1/1) {
@@ -482,25 +397,6 @@ body {
     }
 }
 
-.controls:hover {
-    border: solid red 2px;
-    box-sizing: border-box;
-}
-
-.minor {
-    @media (min-aspect-ratio: 1/1) {
-        width: 44px;
-        height: 44px;
-        border-radius: 44px;
-    }
-    /*Mobile*/
-    @media (max-aspect-ratio: 1/1) {
-        width: 60px;
-        height: 60px;
-        border-radius: 60px;
-    }
-
-}
 
 .selected  {
     text-decoration-line: underline;
