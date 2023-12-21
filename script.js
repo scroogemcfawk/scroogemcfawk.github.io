@@ -10,23 +10,43 @@ let fragments
 let currentFragmentIndex
 audio.muted = false
 
-function selectText(n) {
-    if (n > -1) {
-        const fields = document.getElementById("textFields").children
-        currentFragmentIndex = n
-        audio.currentTime = fragments[currentFragmentIndex].timeBegin
 
-        for (let c = 0; c < fields.length; ++c) {
-            let e = fields[c]
-            if (c !== n) {
-                e.classList.remove("selected")
-            } else {
-                e.classList.add("selected")
-                textEl.textContent = e.textContent
+function markText(n) {
+    const fields = document.getElementById("textFields").children
+    for (let c = 0; c < fields.length; ++c) {
+        let e = fields[c]
+        if (c !== n) {
+            e.classList.remove("selected")
+        } else {
+            e.classList.add("selected")
+            textEl.textContent = e.textContent
+        }
+    }
+}
+
+function textProgress() {
+    if (loadState) {
+        var curTime = audio.currentTime
+        // yeah... it's n^2...
+        for (let i = 0; i < fragments.length; ++i) {
+            var check = fragments[i]
+            if (check.timeBegin <= curTime && curTime <= check.timeEnd) {
+                markText(i)
+                return
             }
         }
     }
 }
+
+function selectText(n) {
+    if (n > -1) {
+        currentFragmentIndex = n
+        audio.currentTime = fragments[currentFragmentIndex].timeBegin
+        markText(n)
+    }
+}
+
+
 
 function toggleMuteAudio() {
     var icon = document.getElementById("volumeButton").getElementsByTagName("i").item(0)
@@ -48,6 +68,8 @@ function progressLoop() {
     let end = audio.duration
 
     // console.log(now / end * 100)
+
+    textProgress()
 
     progress.style.width = (now / end * 100) + "%"
 
@@ -137,7 +159,9 @@ function playPause() {
         // console.log("play")
         audio.play()
         playButton.style.zIndex = '-1'
-        autoFragment()
+        if (currentFragmentIndex > -1) {
+            autoFragment()
+        }
     }
     audioState = !audioState
 }
